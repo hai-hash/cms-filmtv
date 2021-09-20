@@ -4,6 +4,7 @@ import { AiFillCaretDown,AiFillCaretUp } from "react-icons/ai";
 import {Menu} from './type.menu';
 import {AiFillHome,AiFillSwitcher} from "react-icons/ai";
 import {MdAccountCircle} from "react-icons/md";
+import {Link} from "react-router-dom";
 interface Props{
     item : Menu;
 }
@@ -17,7 +18,7 @@ export default function ElementMenu({item}:Props){
         let result = null;
         if(item.element.length > 0){
             result = item.element.map((i,index)=> {
-                return  <li key={index}>{i.title}</li>
+                return <Link className={styles.toLink} to={i.url} key={index}><li>{i.title}</li></Link> 
             })
         }
         return result;

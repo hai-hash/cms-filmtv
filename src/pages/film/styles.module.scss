@@ -28,3 +28,44 @@
     margin-top: 40px;
     background-color: #fff;
 }
+
+.action{
+    display: flex;
+}
+
+.edit{
+    border: none;
+    background-color: #fd0d0d;
+    min-width: 70px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: #fff;
+    &:hover{
+        opacity: 0.6;
+    }
+}
+.detail{
+    border: none;
+    background-color: #6f82db;
+    min-width: 70px;
+    border-radius: 5px;
+    color: #fff;
+    &:hover{
+        opacity: 0.6;
+    }
+}
+
+.form{
+    background-color: #fff;
+    margin-top: 50px;
+    padding-top: 10px;
+    .col{
+        margin-bottom: 20px !important;
+        input{
+            height: 50px;
+            border-radius: 5px;
+        }
+    }
+
+}
+

@@ -38,7 +38,7 @@ export default function MenuUtils() : UtilConstFilm{
                     },
                     {
                         title: "Tập phim",
-                        url : "/tap"
+                        url : "/episodes"
                     }
                 ]
             }
