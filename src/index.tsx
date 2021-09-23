@@ -3,13 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Layout from './library/layout/layout';
-import Loading from './library/loading/loading';
-
 ReactDOM.render(
   <React.StrictMode>
-    <Loading>
       <Layout/>
-    </Loading>
   </React.StrictMode>,
   document.getElementById('root')
 );
