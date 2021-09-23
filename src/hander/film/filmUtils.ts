@@ -2,17 +2,20 @@ import React,{useState} from 'react';
 import * as apis from './../api/api';
 import {FilmTv} from './film.types';
 import * as urls from './film.type.api';
+
 interface UtilsFilm{
-    getAllFilms : () => void
-    data : FilmTv[]
-    createNewFilm : (data : FilmTv) => void
+    getAllFilms : () => void,
+    data : FilmTv[],
+    createNewFilm : (data : FilmTv) => void,
+    changeActiveFilm : (id?: number) => void,
+    changeHotFilm:(id?: number) => void,
 }
 export default function FilmUtils() : UtilsFilm {
-    const [data, setdata] = useState<FilmTv[]>([]);
+    const [data, setData] = useState<FilmTv[]>([]);
     const getAllFilms = async () =>{
         const res = await apis.get(urls.GET_ALL)
         console.log(res);
-        setdata(res.data);
+        setData(res.data);
     }
 
     // thêm một phim mới
@@ -21,10 +24,26 @@ export default function FilmUtils() : UtilsFilm {
         console.log(res);
     }
 
+    // thay đổi trang thái của film 
+    const changeActiveFilm = async(id? : number) =>{
+        const res = await apis.put(`${urls.CHANGE_ACTIVE_FILM}/${id}`);
+        console.log(res);
+    }
+
+     // thay đổi trang thái của hot film
+     const changeHotFilm = async(id? : number) =>{
+        const res = await apis.put(`${urls.CHANGE_HOT}/${id}`);
+        console.log(res);
+    }
+
     return {
     getAllFilms,
     data,
     createNewFilm,
+    changeActiveFilm,
+    changeHotFilm,
+
+
     }
 }
 

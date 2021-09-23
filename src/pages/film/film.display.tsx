@@ -4,10 +4,13 @@ import styles from './styles.module.scss';
 import FilmUtils from './../../hander/film/filmUtils';
 import {FilmTv} from './../../hander/film/film.types';
 import ItemFirm from './ItemFirm';
+import LoadingUtils from './../../hander/loading/loadingutils';
 const FilmDisplay = () => {
-    const {getAllFilms,data} = FilmUtils();
+    const {getAllFilms,data,changeActiveFilm,changeHotFilm} = FilmUtils();
+    const {setLoading} = LoadingUtils();
     useEffect(() => {
         getAllFilms();
+        setLoading(false);
     }, [])
 
     console.log("đây là dữ liệu data", data)
@@ -15,7 +18,7 @@ const FilmDisplay = () => {
         let result = null;
         if(data.length > 0){
             result = data.map((film,index) =>{
-                return <ItemFirm key={index} film = {film}/>
+                return <ItemFirm key={index} film = {film} changeActiveFilm = {changeActiveFilm} changeHotFilm={changeHotFilm}/>
             })
         }
         return result;
